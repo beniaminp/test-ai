@@ -41,7 +41,7 @@ model = GPT2LMHeadModel.from_pretrained(model_name)
 
 # Processing
 happy_gen = HappyGeneration("GPT-2", "gpt2")
-max_length = 1023
+max_length = 500
 args = GENSettings(num_beams=2, max_length=max_length)
 
 
@@ -49,7 +49,7 @@ input_ids = tokenizer(text)['input_ids']
 chunks = [input_ids[i:i+max_length] for i in range(0, len(input_ids), max_length)]
 chunks_str = [tokenizer.convert_tokens_to_string(tokenizer.convert_ids_to_tokens(c)) for c in chunks]
 
-results = [happy_gen.generate_text(f"Question: What is the invoice for? {c}", args=args)
+results = [happy_gen.generate_text(f"What is the invoice for? Answer based on the following text: {c}", args=args)
            for c in tqdm(chunks_str)]
 
 for r in results:
