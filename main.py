@@ -17,9 +17,9 @@ text = page.extract_text()
 #model_name = "deepset/tinyroberta-squad2"
 
 #the best for now
-#model_name = "deepset/minilm-uncased-squad2"
+model_name = "deepset/minilm-uncased-squad2"
 
-model_name = "deepset/deberta-v3-large-squad2"
+#model_name = "deepset/deberta-v3-base-squad2"
 # a) Get predictions
 nlp = pipeline('question-answering', model=model_name, tokenizer=model_name)
 QA_input_1 = {
