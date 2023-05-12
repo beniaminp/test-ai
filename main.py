@@ -1,5 +1,8 @@
 from transformers import AutoModelForQuestionAnswering, AutoTokenizer, pipeline
 from PyPDF2 import PdfReader
+import sys
+
+print(sys.argv)
 
 # creating a pdf reader object
 reader = PdfReader('inv_2.pdf')
